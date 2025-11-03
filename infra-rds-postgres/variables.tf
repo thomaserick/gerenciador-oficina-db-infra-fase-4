@@ -1,4 +1,4 @@
-variable "project_name" { default = "gerenciador-oficina-core" }
+variable "project_name" { default = "gerenciador-oficina-rds" }
 variable "aws_region" { default = "us-east-1" }
 
 ## RDS Envs ##

@@ -12,8 +12,8 @@ A infraestrutura criada contém os seguintes componentes:
 - **Amazon RDS (PostgreSQL):** Instância gerenciada de banco de dados.
 - **Subnet Group:** Agrupa subnets privadas para hospedar o banco.
 - **Security Group:** Controla o tráfego permitido para a instância.
-- **VPC (externa ou referenciada):** Rede onde o RDS será implantado.
-- **Terraform Backend (S3 + DynamoDB):** Armazenamento e lock do state remoto.
+- **VPC:** Rede onde o RDS será implantado.
+- **Terraform Backend:** Armazenamento e lock do state remoto.
 
 ## 📋 Índice
 

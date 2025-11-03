@@ -1,6 +1,6 @@
 ## VPC Config ##
 module "vpc" {
-  source   = "../modules/vpc"
+  source   = "./modules/vpc"
   vpc_cidr = var.vpc_cidr
   vpc_name = var.project_name
 }
@@ -8,7 +8,7 @@ module "vpc" {
 
 # SG Config ##
 module "sg_rds" {
-  source     = "../modules/security_group/"
+  source     = "./modules/security_group"
   vpc_cidr   = var.vpc_cidr
   vpc_id     = module.vpc.vpc_id
   depends_on = [module.vpc]
@@ -16,7 +16,7 @@ module "sg_rds" {
 
 ## RDS Config ##
 module "rds" {
-  source                    = "../modules/rds"
+  source                    = "./modules/rds"
   rds_name                  = var.project_name
   database_subnets          = module.vpc.public_subnet_ids
   security_group_id         = [module.sg_rds.security_group_id]
