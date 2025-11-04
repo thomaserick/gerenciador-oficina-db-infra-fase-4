@@ -2,9 +2,11 @@ name: Terraform Infra RDS Postgres
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch: # permite rodar manualmente
 
 jobs:
@@ -43,10 +45,6 @@ jobs:
       # Inicializa o Terraform (carrega backend remoto)
       - name: Terraform Init
         run: terraform init
-
-#      # Verifica formatação
-#      - name: Terraform Format Check
-#        run: terraform fmt -check
 
       # Valida sintaxe e dependências
       - name: Terraform Validate
