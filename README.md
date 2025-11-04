@@ -30,10 +30,14 @@ organizada de forma modular para facilitar a manutenção e o reuso dos componen
 ```plaintext
 infra-rds-postgress/
 ├── modules/          
+│   ├── s3/                 # Criação de Bucket no S3
 │   ├── vpc/                # Criação da VPC, subnets e rotas
-│   ├── rds/                # Instância do banco de dados RDS PostgreSQL com subnets privadas
+│   ├── rds/                # Instância do banco de dados RDS PostgreSQL com subnets 
 │   └── security_group/     # Regras de segurança e grupos de acesso
-├── main.tf             # Arquivo principal que integra os módulos para o ambiente de produção
+├── main.tf                 # Arquivo principal que integra os módulos para o ambiente de produção
+├── variables.tf            # variáveis principais
+├── outputs.tf              # outputs (endpoint, etc.)
+├── backend.tf              # configuração do backend remoto
 ```
 
 Cada módulo representa um componente independente da infraestrutura, permitindo o versionamento e a escalabilidade da
