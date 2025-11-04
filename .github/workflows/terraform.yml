@@ -42,7 +42,7 @@ jobs:
 
       # Inicializa o Terraform (carrega backend remoto)
       - name: Terraform Init
-        run: terraform init -backend-config=backend.hcl
+        run: terraform init
 
       # Verifica formatação
       - name: Terraform Format Check
