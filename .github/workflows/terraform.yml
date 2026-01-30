@@ -47,12 +47,6 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Debug secrets
-        run: |
-          echo "TF_VAR_password = $TF_VAR_password"
-          echo "TF_VAR_PASSWORD = $TF_VAR_PASSWORD"
-
-
       # Executa o plano
       - name: Terraform Plan
         run: terraform plan -input=false -out=tfplan
@@ -60,6 +54,9 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' &&
           (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        env:
+          TF_VAR_password: ${{ secrets.RDS_PASSWORD }}
+          TF_VAR_username: ${{ secrets.RDS_USER }}
         run: terraform apply -auto-approve tfplan
 
       # Cria o banco de dados
