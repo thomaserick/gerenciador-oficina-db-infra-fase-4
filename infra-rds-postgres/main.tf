@@ -31,6 +31,7 @@ module "rds" {
   rds_instance_class        = var.aws_rds_instance_class
   rds_storage_type          = var.aws_rds_storage_type
   db_parameter_group_family = var.db_parameter_group_family
+    password                  = var.password
 
   depends_on = [module.sg_rds]
 }
