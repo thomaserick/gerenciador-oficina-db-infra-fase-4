@@ -47,14 +47,13 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      # Executa o plano
-      - name: Terraform Plan
-        run: terraform plan -input=false -out=tfplan
-
       - name: Debug TF_VAR
         run: |
           env | grep TF_VAR
 
+      # Executa o plano
+      - name: Terraform Plan
+        run: terraform plan -input=false -out=tfplan
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' &&
