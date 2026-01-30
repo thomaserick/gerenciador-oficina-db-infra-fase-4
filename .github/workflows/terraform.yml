@@ -51,6 +51,11 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -input=false -out=tfplan
 
+      - name: Debug TF_VAR
+        run: |
+          env | grep TF_VAR
+
+
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' &&
           (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
