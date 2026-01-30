@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_REGION: us-east-1
+      TF_VAR_password: ${{ secrets.RDS_PASSWORD }}
+      TF_VAR_username: ${{ secrets.RDS_USER }}
     defaults:
       run:
         working-directory: infra-rds-postgres
@@ -49,17 +51,11 @@ jobs:
 
       # Executa o plano
       - name: Terraform Plan
-        env:
-          TF_VAR_password: ${{ secrets.RDS_PASSWORD }}
-          TF_VAR_username: ${{ secrets.RDS_USER }}
         run: terraform plan -input=false -out=tfplan
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' &&
           (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
-        env:
-          TF_VAR_password: ${{ secrets.RDS_PASSWORD }}
-          TF_VAR_username: ${{ secrets.RDS_USER }}
         run: terraform apply -auto-approve tfplan
 
       # Cria o banco de dados
