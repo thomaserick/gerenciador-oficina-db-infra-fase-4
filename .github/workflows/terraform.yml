@@ -47,9 +47,11 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Debug TF_VAR
+      - name: Debug secrets
         run: |
-          env | sort
+          echo "TF_VAR_password = $TF_VAR_password"
+          echo "TF_VAR_PASSWORD = $TF_VAR_PASSWORD"
+
 
       # Executa o plano
       - name: Terraform Plan
