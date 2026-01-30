@@ -7,7 +7,7 @@ echo $RDS_ENDPOINT
 echo $RDS_USER
 echo $RDS_PASSWORD
 
-psql "host=$RDS_ENDPOINT port=5432 dbname=postgres user=$RDS_USER sslmode=require password=$RDS_PASSWORD" << EOF
+psql "host=$RDS_ENDPOINT port=5432 user=$RDS_USER sslmode=require password=$RDS_PASSWORD" << EOF
 DO \$\$
 BEGIN
    IF NOT EXISTS (
