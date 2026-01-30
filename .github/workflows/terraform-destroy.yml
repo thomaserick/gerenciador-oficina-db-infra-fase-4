@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_REGION: us-east-1
+      TF_VAR_password: ${{ secrets.RDS_PASSWORD }}
+      TF_VAR_username: ${{ secrets.RDS_USER }}
     defaults:
       run:
         working-directory: infra-rds-postgres
