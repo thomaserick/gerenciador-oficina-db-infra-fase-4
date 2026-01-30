@@ -3,6 +3,10 @@ set -e
 
 echo "Criando databases no RDS..."
 
+echo "RDS_ENDPOINT=$RDS_ENDPOINT"
+echo "RDS_USER=$RDS_USER"
+
+
 psql "host=$RDS_ENDPOINT \
       user=$RDS_USER \
       password=$RDS_PASSWORD \
