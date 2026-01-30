@@ -49,7 +49,7 @@ jobs:
 
       - name: Debug TF_VAR
         run: |
-          env | grep TF_VAR
+          env | sort
 
       # Executa o plano
       - name: Terraform Plan
