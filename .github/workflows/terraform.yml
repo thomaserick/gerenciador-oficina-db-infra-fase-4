@@ -69,5 +69,5 @@ jobs:
           export RDS_USER=${{ secrets.RDS_USER }}
           export RDS_PASSWORD=${{ secrets.RDS_PASSWORD }}
 
-          chmod +x ./devops/scripts/create-databases.sh
-          ./devops/scripts/create-databases.sh
+          chmod +x $GITHUB_WORKSPACE/devops/scripts/create-databases.sh
+          $GITHUB_WORKSPACE/devops/scripts/create-databases.sh
