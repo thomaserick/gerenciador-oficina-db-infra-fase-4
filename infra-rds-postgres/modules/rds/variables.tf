@@ -6,6 +6,7 @@ variable "rds_instance_class" { default = "db.t4g.micro" }
 variable "rds_storage_type" { default = "gp2" }
 variable "db_parameter_group_family" { default = "postgres16" }
 variable "password" {}
+variable "username" { default = "postgres"}
 
 variable "rds_allocated_storage" {
   description = "Armazenamento em GB (Free Tier tipicamente até 20GB)"

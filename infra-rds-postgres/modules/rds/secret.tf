@@ -7,7 +7,7 @@ resource "aws_secretsmanager_secret" "secret_user_postgres" {
 resource "aws_secretsmanager_secret_version" "secret_password_postgres" {
   secret_id = aws_secretsmanager_secret.secret_user_postgres.id
   secret_string = jsonencode({
-    username = "postgres"
+    username = var.username
     password = var.password
   })
 }

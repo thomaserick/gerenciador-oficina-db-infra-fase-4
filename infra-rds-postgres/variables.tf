@@ -8,11 +8,8 @@ variable "aws_rds_engine_version" { default = "16.6" }
 variable "aws_rds_instance_class" { default = "db.t4g.micro" }
 variable "aws_rds_storage_type" { default = "gp2" }
 variable "db_parameter_group_family" { default = "postgres16" }
-variable "password" {
-  default = "oficina01"
-}
-
-
+variable "password" { description = "Senha do usuário do banco RDS"}
+variable "username" { default = "postgres" }
 
 ## VPC Envs ##
 variable "vpc_cidr" { default = "10.0.0.0/16" }
